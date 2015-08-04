@@ -16,18 +16,9 @@ library(ggplot2)
 
 
 ```r
-# Download and Unzip Files
-
-setwd("C:/Users/conradwo/Documents/R/Reproducible/Project 1")
-
-#if (!file.exists("data"))
-#    dir.create("data")
-
-#download.file("https://d396qusza40orc.cloudfront.net/repdata_Fdata_Factivity.zip", destfile="./data#/Factivity.zip
-#unzip("./data/Factivity.zip", exdir="./data")
-
 # Read Data
 
+setwd("C:/Users/conradwo/Documents/R/Reproducible/Project 1/Git/RepData_PeerAssessment1")
 activity_data <- read.csv("activity.csv")
 ```
 
