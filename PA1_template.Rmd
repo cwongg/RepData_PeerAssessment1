@@ -3,7 +3,7 @@ title: "Reproducible Research - Project 1"
 author: "Conrad Wong"
 
 ---
-##Loading packages
+## Loading packages
 
 
 ```{r results="hide"}
@@ -11,13 +11,16 @@ library(dplyr)
 library(ggplot2)
 ```
 
-##Loading and preprocessing the data
+## Loading and preprocessing the data
 
 ```{r}
 
-# Read Data
+# Download/Unzip file and Read Data
 
 setwd("C:/Users/conradwo/Documents/R/Reproducible/Project 1/Git/RepData_PeerAssessment1")
+download.file("https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip", destfile="activity.zip")
+unzip("activity.zip")
+
 activity_data <- read.csv("activity.csv")
 
 ```
@@ -129,7 +132,7 @@ Number of rows updated with the interval average: `r nas`
 
 4.Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-``` {r Histogram Total Steps by Date (New Data)}
+``` {r Histogram Total Steps by Date 2}
 
 steps_by_day <-merged %>% group_by(date) %>% summarize(sum(steps, na.rm=FALSE))
 names(steps_by_day) <- c("date", "total_steps")
@@ -165,7 +168,7 @@ head(merged)
 
 2.Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-``` {r TimeSeries Average Steps by Interval (New data), fig.width=12, fig.height=6}
+``` {r TimeSeries Average Steps by Interval 2, fig.width=12, fig.height=6}
 
 steps_by_interval <- merged %>% group_by(day_type, interval) %>% summarize(mean(steps, na.rm=FALSE))
 names(steps_by_interval) <- c("day_type", "interval", "avg_steps")

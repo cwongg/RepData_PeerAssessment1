@@ -3,7 +3,7 @@ title: "Reproducible Research - Project 1"
 author: "Conrad Wong"
 
 ---
-##Loading packages
+## Loading packages
 
 
 
@@ -12,13 +12,16 @@ library(dplyr)
 library(ggplot2)
 ```
 
-##Loading and preprocessing the data
+## Loading and preprocessing the data
 
 
 ```r
-# Read Data
+# Download/Unzip file and Read Data
 
 setwd("C:/Users/conradwo/Documents/R/Reproducible/Project 1/Git/RepData_PeerAssessment1")
+download.file("https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip", destfile="activity.zip")
+unzip("activity.zip")
+
 activity_data <- read.csv("activity.csv")
 ```
 
@@ -159,7 +162,7 @@ names(steps_by_day) <- c("date", "total_steps")
 hist(steps_by_day$total_steps, main="Histogram of Total Steps by Day", xlab="Total steps by Day", col="Gray", ylab='Frequecy - Number of Days')
 ```
 
-![plot of chunk Histogram Total Steps by Date (New Data)](figure/Histogram Total Steps by Date (New Data)-1.png) 
+![plot of chunk Histogram Total Steps by Date 2](figure/Histogram Total Steps by Date 2-1.png) 
 
 ```r
 # Calculate mean and median, use format to avoid the result being printed in exponential notation
@@ -209,5 +212,5 @@ names(steps_by_interval) <- c("day_type", "interval", "avg_steps")
 qplot(interval, avg_steps, data = steps_by_interval, facets= day_type~., geom="line", ylab="Number of Steps", xlab="5-minute Interval", main="Average steps taken per 5-minute interval by Weekday/Weekend")
 ```
 
-![plot of chunk TimeSeries Average Steps by Interval (New data)](figure/TimeSeries Average Steps by Interval (New data)-1.png) 
+![plot of chunk TimeSeries Average Steps by Interval 2](figure/TimeSeries Average Steps by Interval 2-1.png) 
 
