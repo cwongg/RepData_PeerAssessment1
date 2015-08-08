@@ -1,8 +1,8 @@
----
-title: "Reproducible Research - Project 1"
-author: "Conrad Wong"
+# Title: Reproducible Research - Project 1
+# Author: Conrad Wong
 
----
+
+
 ## Loading packages
 
 
